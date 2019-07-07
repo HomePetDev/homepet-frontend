@@ -2,7 +2,7 @@
   <div>
     <div v-show="isLoggedIn">
       <h1>Bienvenido {{user.nombre}}</h1>
-      <h1>tu homepet tiene estas caracteristicas</h1>
+      <h1>Tuuuuuu homepet tiene estas caracteristicas</h1>
       <ul>
         <li>Rif:  {{ homepet.rif}}</li>
         <li>Capacidad:  {{ homepet.capacidad}}</li>
