@@ -4,6 +4,8 @@ import Home from './views/Home.vue'
 import Gerente from './views/Gerente.vue'
 import GerenteSignin from './views/GerenteSignin.vue'
 import newHomepet from './views/newHomepet.vue'
+import Empleado from './views/Empleado.vue'
+import Conocenos from './views/Conocenos.vue'
 
 Vue.use(Router)
 
@@ -14,11 +16,12 @@ export default new Router({
       name: 'home',
       component: Home
     },
-
     {
       path:'/gerente',component : Gerente,
     },
     {path:'/gerente/signin', component: GerenteSignin },
-    {path:'/gerente/homepet/new' , component: newHomepet }
+    {path:'/gerente/homepet/new' , component: newHomepet },
+    {path:'/gerente/empleados' , component: Empleado },
+    {path:'/conocenos' , component: Conocenos }
   ]
 })
