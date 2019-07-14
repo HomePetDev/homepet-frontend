@@ -1,6 +1,8 @@
 <template>
     <div>
-        <button  @click="toggleForm(true)" class="btn btn-info btn-lg">nuevo</button>
+        <button  @click="toggleForm(true)" class="btn btn-info btn-lg">
+          <font-awesome-icon icon="plus" />
+        </button>
         <form
              @submit.prevent="onSubmit()"
             v-show="isOpen" class="form-container p-4 bg-light rounded text-dark shadow-sm mb-4"
@@ -42,7 +44,7 @@ export default {
     return{
       isOpen:false,
       form:{
-        nombre_prod:null, precio:null, precio:null, instrucciones:null 
+        nombre_prod:null, descripcion:null, precio:null, instrucciones:null 
       }
     }
   },
