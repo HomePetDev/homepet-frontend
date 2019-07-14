@@ -1,8 +1,7 @@
-
 const state = {
   token: "",
   user:{
-    id_acceso:3,
+    id_acceso:4,
   },
   isLoggedIn: false,
 }
