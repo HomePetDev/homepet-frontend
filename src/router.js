@@ -12,8 +12,9 @@ import Actividad from './views/Actividad.vue'
 import MyHomepet from './views/MyHomepet.vue'
 import Mascotas from './views/Mascotas.vue'
 import Inventario from './views/Inventario.vue'
-import Reservas from './views/Reservas.vue'
+import Reserva from './views/Reserva.vue'
 import NewFicha from './views/NewFicha.vue'
+import Cliente from "./views/Cliente.vue"
 
 Vue.use(Router)
 
@@ -37,9 +38,10 @@ export default new Router({
     {path:'/gerente/MyHomepet', component: MyHomepet},
     {path:'/gerente/Mascotas',component: Mascotas},
     {path:'/gerente/Inventario', component:Inventario},
-    {path:'/gerente/Reservas', component:Reservas},
+    {path:'/gerente/Reservas', component:Reserva},
     {path:'/gerente/Servicio', component:Servicio},
     {path:'/gerente/Actividad', component:Actividad},
+    {path:'/gerente/Cliente', component:Cliente},
     {path:'/NewFicha', component:NewFicha},
   ]
 })
