@@ -6,8 +6,6 @@
 
 </template>
 
-
-
 <script>
 import FormCliente from "@/components/FormCliente.vue"
 
