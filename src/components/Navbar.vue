@@ -97,7 +97,7 @@
       </div>
 
       <div v-show="isLoggedIn" class="auth-buttons">
-        <button @click="logOut()" class="btn btn-danger">Salir</button>
+        <button @click="onLogOut()" class="btn btn-danger">Salir</button>
         
       </div>
     </div>
@@ -116,7 +116,14 @@
       }
     },
     methods:{
-      ...mapActions("auth", [""])
+      ...mapActions("auth", ["logOut"]),
+      onLogOut(){
+        this.logOut().then(()=>{
+          this.$router.push("/")
+
+        })
+        
+      }
     },
     computed:{
       ...mapState('auth', ['user', 'isLoggedIn']),

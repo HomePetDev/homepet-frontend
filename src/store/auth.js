@@ -1,7 +1,7 @@
 import API from "@/API"
 
 const state = {
-  token: "",
+  token:null,
   user:{
     id_acceso:1 ,
   },
@@ -52,6 +52,8 @@ const actions = {
     })
 
   },
+
+
   async logIn (context, payload){
     return new Promise (async (resolve, reject)=>{
       const {cedula_id, pass} = payload;
@@ -67,15 +69,15 @@ const actions = {
           } 
         });
         const data = await res.json();
-        if (data.error){
-          reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});        
+        if (data.msg){
+          reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});
+          context.commit('control/setLoading', false, {root:true});        
         }else{
-          
-
           const user = await API.getUserByCI(cedula_id);
-          const homepet = await API.getHomepetByCI(cedula_id)
+          const homepet = await API.getHomepetByCI(cedula_id);
           context.commit("setUser", user);
           context.commit("setToken", data.token);
+          localStorage.setItem('token' , data.token);
           context.commit("setIsLoggedIn", true) 
           context.commit("homepet/setHomepet", homepet, {root:true});
           context.commit('control/setLoading', false, {root:true});
@@ -84,20 +86,52 @@ const actions = {
       }
     });    
   },
-  async logOut(){
-  // do something aqui
+  async logOut(context){
+    return new Promise( async (resolve,reject) =>{
+      localStorage.setItem('token' , null);
+      context.commit("setIsLoggedIn", false);
+      context.commit("homepet/setHomepet", null, {root:true});
+      context.commit("setUser", {id_acceso:1});
+      resolve(); 
+    });
+    
 
+  },
+  async loggedIn(context){
+    return new Promise( async(resolve,reject)=>{
+      const token = localStorage.getItem('token');
 
-
-
-  }
-  
+      if(token){
+        const {cedula_id} = parseJwt(token);
+        const user = await API.getUserByCI(cedula_id);
+        const homepet = await API.getHomepetByCI(cedula_id);
+        context.commit("setUser", user);
+        context.commit("homepet/setHomepet", homepet, {root:true});
+        context.commit("setIsLoggedIn", true);
+        resolve();
+      } 
+    });
+  }  
 }
+
+
+
 const getters = {
 
 
-
 }
+
+const parseJwt = (token) => {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace('-', '+').replace('_', '/');
+  return JSON.parse(window.atob(base64));
+}
+
+
+
+
+
+
 export default {
   namespaced:true,
   state,mutations,actions,getters

@@ -73,7 +73,7 @@
       onSubmit(){
         this.logIn(this.form)
           .then(()=>{
-            this.$router.push('/gerente');
+            this.$router.push('/gerente/MyHomepet');
           })
           .catch(alert => this.showAlert(alert));
 
