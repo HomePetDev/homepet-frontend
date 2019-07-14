@@ -11,7 +11,7 @@
 
 <script>
 
-  import {mapState, mapActions} from "vuex"
+  import { mapActions} from "vuex"
 
 
   import Navbar from "@/components/Navbar.vue";

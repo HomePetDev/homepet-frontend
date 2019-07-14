@@ -87,7 +87,7 @@ const actions = {
     });    
   },
   async logOut(context){
-    return new Promise( async (resolve,reject) =>{
+    return new Promise( async (resolve) =>{
       localStorage.setItem('token' , null);
       context.commit("setIsLoggedIn", false);
       context.commit("homepet/setHomepet", null, {root:true});
@@ -98,7 +98,7 @@ const actions = {
 
   },
   async loggedIn(context){
-    return new Promise( async(resolve,reject)=>{
+    return new Promise( async(resolve)=>{
       const token = localStorage.getItem('token');
 
       if(token){
