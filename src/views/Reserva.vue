@@ -5,6 +5,11 @@
             <FormReserva/>
         </div>
         <hr>
+        <div>
+            <ul>
+        
+            </ul>
+        </div>
     </div>    
 </template>
 
