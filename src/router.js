@@ -4,11 +4,13 @@ import Home from './views/Home.vue'
 import Gerente from './views/Gerente.vue'
 import GerenteSignin from './views/GerenteSignin.vue'
 import newHomepet from './views/newHomepet.vue'
-import Empleado from './views/Empleado.vue'
+import Empleados from './views/Empleados.vue'
 import Conocenos from './views/Conocenos.vue'
 import Login from './views/Login.vue'
 import MyHomepet from './views/MyHomepet.vue'
 import Mascotas from './views/Mascotas'
+import Inventario from './views/Inventario'
+import Reservas from './views/Reservas'
 
 Vue.use(Router)
 
@@ -20,14 +22,16 @@ export default new Router({
       component: Home
     },
     {
-      path:'/gerente',component : Gerente,
+      path:'/gerente',component : Gerente
     },
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
-    {path:'/gerente/empleados' , component: Empleado },
+    {path:'/gerente/empleados' , component: Empleados },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
     {path:'/gerente/MyHomepet', component: MyHomepet},
-    {path:'/gerente/Mascotas',component: Mascotas}
+    {path:'/gerente/Mascotas',component: Mascotas},
+    {path:'/gerente/Inventario', component:Inventario},
+    {path:'/gerente/Reservas', component:Reservas}
   ]
 })
