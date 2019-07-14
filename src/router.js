@@ -11,8 +11,7 @@ import Servicio from './views/Servicio.vue'
 import Actividad from './views/Actividad.vue'
 import MyHomepet from './views/MyHomepet.vue'
 import Mascotas from './views/Mascotas'
-import Inventario from './views/Inventario'
-import Reservas from './views/Reservas'
+import Cliente from './views/Cliente'
 
 Vue.use(Router)
 
@@ -23,21 +22,21 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    {
-      path:'/gerente',component : Gerente
-    },
+
+    {path:'/gerente',component : Gerente},
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
     {path:'/gerente/empleados' , component: Empleados },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
+    {path:'/empleado' , component: Empleados},
     {path:'/empleado/Servicio' , component: Servicio },
     {path: '/empleado/actividad', component: Actividad},
     {path:'/gerente/MyHomepet', component: MyHomepet},
     {path:'/gerente/Mascotas',component: Mascotas},
-    {path:'/gerente/Inventario', component:Inventario},
-    {path:'/gerente/Reservas', component:Reservas},
-    {path:'/gerente/Servicio', component:Servicio},
-    {path:'/gerente/Actividad', component:Actividad},
+    {path:'/gerente/cliente', component: Cliente},
+    {path:'/gerente/actividad', component: Actividad},
+    {path:'/gerente/Servicio', component: Servicio}
+
   ]
 })

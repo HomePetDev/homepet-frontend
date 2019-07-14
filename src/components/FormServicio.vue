@@ -1,30 +1,77 @@
 <template>
    <div>
-        <form>
+        <button  @click="toggleForm(true)" class="btn btn-info btn-lg">nuevo</button>
+            <form
+                @submit.prevent="onSubmit()"
+                v-show="isOpen" class="form-container p-4 bg-light rounded text-dark shadow-sm mb-4"
+            >
+
+            <div class="mb-4 d-flex justify-content-between align-items-center">
+                <h4>Nuevo Servicio</h4>
+                <button @click="toggleForm(false)" type="button" class="close" >&times;</button>
+            </div>
+            
+            <div class="form-group" >
+                <label>Nombre de Servico <strong class="text-danger">*</strong> </label>
+                <input v-model="form.nombre" type="text" class="form-control" placeholder="Inserte Nombre">
+            </div>
 
             <div class="form-group" >
-                <label >Nombre de Servicio</label>
-                <input type="text" class="form-control" placeholder="Inserte Nombre">
+                <label >Descipcion de Servicio <strong class="text-danger">*</strong> </label>
+                <input v-model="form.desc_servicio" type="text" class="form-control" placeholder="Inserte Descripcion">
             </div>
 
-            <div class="form-group">
-                <label>Descripcion de Servicio</label>
-                <input type="text" class="form-control" placeholder="Inserte Descripcion">
+            <div class="button-container">
+                <button id="submitButton" class="btn btn-lg btn-info">
+                    <h5  class="mb-0">Añadir</h5>   
+                </button>  
             </div>
-            <button type="submit" class="btn btn-primary">Agregar Servicio</button>
 
-        </form>
+
+            </form>
     </div>
 </template>
 
 <script>
 export default {
+    data(){
+    return{
+      isOpen:false,
+      form:{
+        nombre:null, desc_servicio:null 
+      }
+    }
+  },
+  methods:{
+    toggleForm(value){
+        this.isOpen=value;
+    },
+    onSubmit(){
+
+      console.log(this.form);
+      // Aqui handleamos el formulario
+
+    }
+  }
 
 }
 </script>
 
 <style scoped>
-    .form-group{
-        min-width:30% ;
-    }
+    .form-container{
+    position: fixed;
+    top: 20px;
+    width: 40%;
+    left: 30%
+  }
+
+  .button-container{
+    text-align: center;
+    width: 30%;
+    margin:0 auto;
+  }
+
+  .close{
+    color: black
+  }
 </style>
