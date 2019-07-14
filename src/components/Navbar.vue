@@ -91,9 +91,14 @@
 
       <div v-show="!isLoggedIn" class="auth-buttons">
         <router-link class="navbar-brand" :to="'/login'">
-          <button type="button" class="btn btn-success mr-2">Ingresa</button>
+          <button type="button" class="btn btn-success">Ingresa</button>
         </router-link>
-        <button type="button" class="btn btn-info">Registrate</button>
+       
+      </div>
+
+      <div v-show="isLoggedIn" class="auth-buttons">
+        <button @click="onLogOut()" class="btn btn-danger">Salir</button>
+        
       </div>
     </div>
   </nav>
@@ -101,7 +106,7 @@
 
 <script>
 
-  import { mapState, } from 'vuex'
+  import { mapState,mapActions } from 'vuex'
 
   export default {
     name:'navbar',
@@ -111,7 +116,14 @@
       }
     },
     methods:{
-      
+      ...mapActions("auth", ["logOut"]),
+      onLogOut(){
+        this.logOut().then(()=>{
+          this.$router.push("/")
+
+        })
+        
+      }
     },
     computed:{
       ...mapState('auth', ['user', 'isLoggedIn']),
@@ -124,7 +136,4 @@
     margin: 0 auto;
     font-size: 1.1rem;
   }
-
-
-
 </style>

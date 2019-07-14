@@ -1,5 +1,15 @@
 <template>
-    <FormEmp/>
+  <div class="mt-4 container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="display-4"> Tus Empleados</h1>
+      <FormEmp/>
+    </div>
+    <hr>
+
+
+
+  </div>
+
 </template>
 
 <script>
