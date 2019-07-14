@@ -9,6 +9,7 @@
     <ul>
       <div class="card border-success mb-3" 
         v-for="servicio in servicios" :key="servicio.id"
+        @click="navigateToActividades(servicio)"
       >
         <div class="card-header d-flex justify-content-between align-items-center">
             <h3>{{servicio.nombre}}</h3>
@@ -38,6 +39,15 @@ export default {
         
       }
     },
+    methods:{
+      navigateToActividades(servicio){
+        this.$router.push({
+          path:`/gerente/actividades/${servicio.nombre}`,
+          params:{ servicio }
+        })
+      }
+    },
+
     computed:{
       ...mapState("homepet", ["servicios"]),
     }

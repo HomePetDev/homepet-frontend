@@ -59,8 +59,8 @@ export default {
     },
     onSubmit(){
 
-      console.log(this.form);
-      // Aqui handleamos el formulario
+      // console.log(this.form);
+      // // Aqui handleamos el formulario
 
     }
   }

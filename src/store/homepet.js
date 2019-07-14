@@ -3,6 +3,7 @@ import API from "../API";
 const state={
   homepet:Object,
   servicios:[],
+  empleados:[],
 }
 const mutations = {
   setHomepet (state, payload){
@@ -78,8 +79,9 @@ const actions = {
       }
     });
   }
-
 }
+
+
 const getters = {
 
 }

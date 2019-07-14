@@ -69,20 +69,23 @@ const actions = {
           } 
         });
         const data = await res.json();
-        console.log(data);
+       
         
 
-        if (data.error || data.msg){
+        if (data.error){
           context.commit('control/setLoading', false, {root:true});        
           reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});
         }else{
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);
+          const servicios = await API.getServices(homepet.rif);
           context.commit("setUser", user);
           context.commit("setToken", data.token);
           localStorage.setItem('token' , data.token);
-          context.commit("setIsLoggedIn", true) 
           context.commit("homepet/setHomepet", homepet, {root:true});
+          context.commit("homepet/setServicios", servicios, {root:true});
+
+          context.commit("setIsLoggedIn", true) ;
           context.commit('control/setLoading', false, {root:true});
           resolve();
         }
@@ -108,8 +111,10 @@ const actions = {
         const {cedula_id} = parseJwt(token);
         const user = await API.getUserByCI(cedula_id);
         const homepet = await API.getHomepetByCI(cedula_id);
+        const servicios = await API.getServices(homepet.rif);
         context.commit("setUser", user);
         context.commit("homepet/setHomepet", homepet, {root:true});
+        context.commit("homepet/setServicios", servicios, {root:true});
         context.commit("setIsLoggedIn", true);
         resolve();
       } 
