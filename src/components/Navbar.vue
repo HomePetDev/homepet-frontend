@@ -70,6 +70,10 @@
           </li>
 
           <li class="nav-item">
+            <router-link class ="nav-link" :to="'/gerente/cliente'">cliente</router-link>
+          </li>
+
+          <li class="nav-item">
             <router-link class="nav-link" :to="'/gerente/Inventario'">Inventario</router-link>
           </li>
 
@@ -86,7 +90,11 @@
           </li>
 
           <li>
-            <router-link class="nav-link" :to="'/gerente/Todo'">Por Hacer</router-link>
+            <router-link class="nav-link" :to="'/gerente/Servicio'">Servicio</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Actividad'">Actividad</router-link>
           </li>
 
         </div>

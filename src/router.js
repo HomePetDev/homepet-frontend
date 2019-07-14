@@ -11,6 +11,7 @@ import Servicio from './views/Servicio.vue'
 import Actividad from './views/Actividad.vue'
 import MyHomepet from './views/MyHomepet.vue'
 import Mascotas from './views/Mascotas'
+import Cliente from './views/Cliente'
 
 Vue.use(Router)
 
@@ -21,6 +22,7 @@ export default new Router({
       name: 'home',
       component: Home
     },
+
     {path:'/gerente',component : Gerente},
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
@@ -28,9 +30,13 @@ export default new Router({
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
     {path:'/empleado' , component: Empleado},
-    {path:'/empleado/servicio' , component: Servicio },
+    {path:'/empleado/Servicio' , component: Servicio },
     {path: '/empleado/actividad', component: Actividad},
     {path:'/gerente/MyHomepet', component: MyHomepet},
-    {path:'/gerente/Mascotas',component: Mascotas}
+    {path:'/gerente/Mascotas',component: Mascotas},
+    {path:'/gerente/cliente', component: Cliente},
+    {path:'/gerente/actividad', component: Actividad},
+    {path:'/gerente/Servicio', component: Servicio}
+
   ]
 })

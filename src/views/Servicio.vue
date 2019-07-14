@@ -1,13 +1,20 @@
 <template>
     <div>
-        <h2>Estos Son los Servicios</h2>    
+        <h2>Servicios</h2>   
+        <FormServicio/> 
     </div>
 
 </template>
 
 <script>
+import FormServicio from "@/components/FormServicio.vue"
+
 export default {
-    
+    name:'Servicio',
+    components:{
+        FormServicio
+    }
+
 }
 </script>
 
