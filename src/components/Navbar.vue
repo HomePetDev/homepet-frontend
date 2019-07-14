@@ -61,8 +61,13 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Clientes</a>
+          <router-link class ="nav-link" :to="'/gerente/clientes'">Clientes</router-link>
         </li>
+
+        <li class="nav-item">
+          <router-link class ="nav-link" :to="'/gerente/mascotas'">Mascotas</router-link>
+        </li>
+
       </div>
 
     </ul>

@@ -2,6 +2,7 @@
   <div class="text-center">
     <h1>Hello Estas en la pagina de gerentes Llena el siguiente formulario para registrarte!</h1>
     <SignInForm> </SignInForm>
+
     <h1 v-show="loading" >Loading</h1>
   </div>
 
