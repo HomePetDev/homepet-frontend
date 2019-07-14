@@ -3,7 +3,7 @@ import API from "@/API"
 const state = {
   token: "",
   user:{
-    id_acceso:4,
+    id_acceso:1 ,
   },
   isLoggedIn: false,
 }
@@ -81,15 +81,17 @@ const actions = {
           context.commit('control/setLoading', false, {root:true});
           resolve();
         }
-        
-
       }
-
-
-
     });    
+  },
+  async logOut(){
+  // do something aqui
+
+
+
 
   }
+  
 }
 const getters = {
 
