@@ -7,6 +7,8 @@ import newHomepet from './views/newHomepet.vue'
 import Empleado from './views/Empleado.vue'
 import Conocenos from './views/Conocenos.vue'
 import Login from './views/Login.vue'
+import MyHomepet from './views/MyHomepet.vue'
+import Mascotas from './views/Mascotas'
 
 Vue.use(Router)
 
@@ -25,5 +27,7 @@ export default new Router({
     {path:'/gerente/empleados' , component: Empleado },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
+    {path:'/gerente/MyHomepet', component: MyHomepet},
+    {path:'/gerente/Mascotas',component: Mascotas}
   ]
 })

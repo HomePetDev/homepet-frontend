@@ -58,7 +58,7 @@
 
         <div class="d-flex" v-if="user.id_acceso == 4">
           <li class="nav-item">
-            <a class="nav-link" href="#">My Homepet</a>
+            <router-link class="nav-link" :to="'/gerente/MyHomepet'">My Homepet</router-link>
           </li>
 
           <li class="nav-item">
@@ -66,8 +66,25 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Clientes</a>
+            <router-link class="nav-link" :to="'/gerente/Inventario'">Inventario</router-link>
           </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Mascotas'">Mascotas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Reservas'">Reservas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Estadisticas'">Estadisticas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Todo'">Por Hacer</router-link>
+          </li>
+
         </div>
 
       </ul>
