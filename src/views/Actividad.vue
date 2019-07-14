@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Estas son clientes</h2>    
+        <h2>Estas son actividades</h2>    
     </div>
 
 </template>

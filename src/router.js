@@ -7,6 +7,9 @@ import newHomepet from './views/newHomepet.vue'
 import Empleado from './views/Empleado.vue'
 import Conocenos from './views/Conocenos.vue'
 import Login from './views/Login.vue'
+import Servicio from './views/Servicio.vue'
+import Actividad from './views/Actividad.vue'
+
 
 Vue.use(Router)
 
@@ -25,5 +28,8 @@ export default new Router({
     {path:'/gerente/empleados' , component: Empleado },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
+    {path:'/empleado' , component: Empleado},
+    {path:'/empleado/servicio' , component: Servicio },
+    {path: '/empleado/actividad', component: Actividad}
   ]
 })

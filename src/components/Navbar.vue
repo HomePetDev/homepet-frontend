@@ -47,11 +47,15 @@
         <div class="d-flex" v-if="user.id_acceso == 3">
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Asignaciones</a>
+            <router-link class ="nav-link" :to="'/empleado/Actividad'">Actividades</router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Perfil</a>
+            <router-link class ="nav-link" :to="'/empleado/Servicio'">Servicios</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/empleado'">Perfil</router-link>
           </li>
         </div>
 
@@ -76,7 +80,10 @@
         <router-link class="navbar-brand" :to="'/login'">
           <button type="button" class="btn btn-success mr-2">Ingresa</button>
         </router-link>
-        <button type="button" class="btn btn-info">Registrate</button>
+
+        <!--<button type="button" class="btn btn-info">Registrate</button>-->
+
+        
       </div>
     </div>
   </nav>
