@@ -3,7 +3,7 @@ import API from "@/API"
 const state = {
   token:null,
   user:{
-    id_acceso:4 ,
+    id_acceso:1,
   },
   isLoggedIn: false,
 }
@@ -69,9 +69,12 @@ const actions = {
           } 
         });
         const data = await res.json();
-        if (data.msg){
-          reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});
+        console.log(data);
+        
+
+        if (data.error || data.msg){
           context.commit('control/setLoading', false, {root:true});        
+          reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});
         }else{
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);

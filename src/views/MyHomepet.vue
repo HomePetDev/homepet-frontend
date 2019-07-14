@@ -12,6 +12,12 @@
         <li>Especialidad:   {{ homepet.especializacion}}</li>
       </ul>
     </div>
+    <router-link :to="'/NewFicha'">
+       <button class="btn btn-success ">
+         Nueva mascota
+      </button> 
+    </router-link>
+
   </div>
 </template>
 

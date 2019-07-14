@@ -109,7 +109,10 @@
       </div>
 
       <div v-show="isLoggedIn" class="auth-buttons">
-        <button @click="onLogOut()" class="btn btn-danger">Salir</button>
+        <button @click="onLogOut()" class="btn btn-danger">
+          <font-awesome-icon icon="sign-out-alt" />
+
+        </button>
         
       </div>
     </div>

@@ -1,13 +1,15 @@
+import API from "../API";
 
 const state={
   homepet:Object,
+  servicios:[],
 }
 const mutations = {
   setHomepet (state, payload){
-
-    
-
     state.homepet = {...payload}
+  },
+  setServicios(state, payload){
+    state.servicios= payload
   }
 }
 
@@ -47,7 +49,36 @@ const actions = {
         }
       }
     });
+  },
+  newService(context, payload){
+    return new Promise(async (resolve,reject)=>{
+      const rif = context.state.homepet.rif;
+      const { nombre, desc_servicio } = payload
+      if ( !nombre  || !desc_servicio ){
+        reject({msg:"Por favor completa los campos", type:"alert-danger"});
+      }else{
+        payload = {rif, nombre, desc_servicio}
+        const res = await fetch(`http://localhost:3000/api/servicios/${rif}`,
+          {
+            method:'POST',
+            body: JSON.stringify({payload}), 
+            headers:{
+              'Content-Type': 'application/json'
+            } 
+          });
+
+          const data = await res.json();
+          if (data.error){
+            reject({msg:"Error al insertar el servicio", type:"alert-danger"});
+          }else{
+            const servicios = await API.getServices(rif);
+            context.commit("setServicios", servicios)
+            resolve();
+          }
+      }
+    });
   }
+
 }
 const getters = {
 
