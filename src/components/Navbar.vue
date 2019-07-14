@@ -47,11 +47,15 @@
         <div class="d-flex" v-if="user.id_acceso == 3">
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Asignaciones</a>
+            <router-link class ="nav-link" :to="'/empleado/Actividad'">Actividades</router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Perfil</a>
+            <router-link class ="nav-link" :to="'/empleado/Servicio'">Servicios</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/empleado'">Perfil</router-link>
           </li>
         </div>
 
@@ -63,6 +67,10 @@
 
           <li class="nav-item">
             <router-link class ="nav-link" :to="'/gerente/empleados'">Empleados</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/gerente/cliente'">cliente</router-link>
           </li>
 
           <li class="nav-item">
@@ -82,7 +90,11 @@
           </li>
 
           <li>
-            <router-link class="nav-link" :to="'/gerente/Todo'">Por Hacer</router-link>
+            <router-link class="nav-link" :to="'/gerente/Servicio'">Servicio</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Actividad'">Actividad</router-link>
           </li>
 
         </div>

@@ -5,9 +5,6 @@
       <FormEmp/>
     </div>
     <hr>
-
-
-
   </div>
 
 </template>

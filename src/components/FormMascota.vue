@@ -103,6 +103,4 @@ export default {
     .form-group{
         min-width:30% ;
     }
-
-
 </style>

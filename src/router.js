@@ -7,6 +7,8 @@ import newHomepet from './views/newHomepet.vue'
 import Empleados from './views/Empleados.vue'
 import Conocenos from './views/Conocenos.vue'
 import Login from './views/Login.vue'
+import Servicio from './views/Servicio.vue'
+import Actividad from './views/Actividad.vue'
 import MyHomepet from './views/MyHomepet.vue'
 import Mascotas from './views/Mascotas'
 import Inventario from './views/Inventario'
@@ -29,9 +31,13 @@ export default new Router({
     {path:'/gerente/empleados' , component: Empleados },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
+    {path:'/empleado/Servicio' , component: Servicio },
+    {path: '/empleado/actividad', component: Actividad},
     {path:'/gerente/MyHomepet', component: MyHomepet},
     {path:'/gerente/Mascotas',component: Mascotas},
     {path:'/gerente/Inventario', component:Inventario},
-    {path:'/gerente/Reservas', component:Reservas}
+    {path:'/gerente/Reservas', component:Reservas},
+    {path:'/gerente/Servicio', component:Servicio},
+    {path:'/gerente/Actividad', component:Actividad},
   ]
 })
