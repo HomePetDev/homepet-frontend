@@ -1,3 +1,4 @@
+import API from "@/API"
 
 const state = {
   token: "",
@@ -9,7 +10,10 @@ const state = {
 
 const mutations = {
   setUser (state, payload){
-      state.user = {...state.user, ...payload}
+    state.user = {...state.user, ...payload}
+  },
+  setToken(state, token){
+    state.token = token
   },
   setIsLoggedIn (state, value){
     state.isLoggedIn = value;
@@ -48,9 +52,42 @@ const actions = {
     })
 
   },
-  async logIn (payload){
-    console.log(payload);
-    
+  async logIn (context, payload){
+    return new Promise (async (resolve, reject)=>{
+      const {cedula_id, pass} = payload;
+      if (!cedula_id || !pass){
+        reject({msg:"Por favor completa los campos", type:"alert-danger"});
+      }else{
+        context.commit('control/setLoading', true, {root:true});
+        const res = await fetch('http://localhost:3000/api/auth/login',{
+          method:'POST',
+          body: JSON.stringify({payload}), 
+          headers:{
+            'Content-Type': 'application/json'
+          } 
+        });
+        const data = await res.json();
+        if (data.error){
+          reject({msg:"Cedula o contraseña invalidas", type:"alert-danger"});        
+        }else{
+          
+
+          const user = await API.getUserByCI(cedula_id);
+          const homepet = await API.getHomepetByCI(cedula_id)
+          context.commit("setUser", user);
+          context.commit("setToken", data.token);
+          context.commit("setIsLoggedIn", true) 
+          context.commit("homepet/setHomepet", homepet, {root:true});
+          context.commit('control/setLoading', false, {root:true});
+          resolve();
+        }
+        
+
+      }
+
+
+
+    });    
 
   }
 }

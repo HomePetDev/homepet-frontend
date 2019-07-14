@@ -4,6 +4,9 @@ const state={
 }
 const mutations = {
   setHomepet (state, payload){
+
+    
+
     state.homepet = {...payload}
   }
 }

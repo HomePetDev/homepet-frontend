@@ -38,16 +38,25 @@
           </router-link>
         </li>
     </ul>  
+
+    <div v-show="isLoading" class="loading-container">
+      <Loading :width="40" :color="'green'"/>
+    </div>
+
   </div>
 </template>
 
 
 <script>
 
-  import {mapActions} from "vuex"
+  import Loading from "@/components/Loading.vue"
+  import {mapActions, mapState} from "vuex"
 
   export default {
     name:'login',
+    components:{
+      Loading
+    },
     data(){
       return{
         form :{
@@ -56,7 +65,7 @@
       }
     },
     computed:{
-
+      ...mapState("control", ["isLoading"])
     },
     methods:{
       ...mapActions("auth", ["logIn"]),
@@ -64,7 +73,7 @@
       onSubmit(){
         this.logIn(this.form)
           .then(()=>{
-            console.log("handle success");
+            this.$router.push('/gerente');
           })
           .catch(alert => this.showAlert(alert));
 

@@ -9,7 +9,7 @@
         <li>Ciudad:   {{ homepet.ciudad}}</li>
         <li>Sector:   {{ homepet.sector}}</li>
         <li>Telefono:   {{ homepet.telefono}}</li>
-        <li>Especialidad:   {{ homepet.especialidad}}</li>
+        <li>Especialidad:   {{ homepet.especializacion}}</li>
       </ul>
     </div>
   </div>
