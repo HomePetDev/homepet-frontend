@@ -1,71 +1,84 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-     <router-link class="navbar-brand" :to="'/'">
-        <img src="../assets/Logo_2.png" alt="" width="100">
-     </router-link>
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <router-link class="navbar-brand" :to="'/'">
+          <img src="../assets/Logo_2.png" alt="" width="150">
+      </router-link>
+      <ul class="navbar-nav mr-auto">
 
-    <ul class="navbar-nav mr-auto">
+        <div class="d-flex" v-if="user.id_acceso == 1">
 
-      <div class="d-flex" v-if="user.id_acceso == 0">
+          <li class="nav-item">
+            <router-link class="nav-link" :to="'/'">
+              <h5>Inicio</h5>
+            </router-link>
+          </li>
 
-        <li class="nav-item">
-          <router-link class="nav-link" :to="'/'">Inicio</router-link>
-        </li>
+          <li class="nav-item">
+            <!-- <router-link class ="nav-link" :to="'/tiendas'"> -->
+              <h5 class="nav-link">Tiendas</h5>
+            <!-- </router-link> -->
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tiendas</a>
-        </li>
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/Conocenos'">
+              <h5>Conocenos</h5>
+            </router-link>
+          </li>
+        </div>
 
-        <li class="nav-item">
-          <router-link class ="nav-link" :to="'/Conocenos'">Conocenos</router-link>
-        </li>
+
+        <div class="d-flex" v-if="user.id_acceso == 2">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Homepets</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tus Mascotas</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Perfil</a>
+          </li>
+        </div>
+
+
+        <div class="d-flex" v-if="user.id_acceso == 3">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Asignaciones</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Perfil</a>
+          </li>
+        </div>
+
+
+        <div class="d-flex" v-if="user.id_acceso == 4">
+          <li class="nav-item">
+            <a class="nav-link" href="#">My Homepet</a>
+          </li>
+
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/gerente/empleados'">Empleados</router-link>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Clientes</a>
+          </li>
+        </div>
+
+      </ul>
+
+      <div v-show="!isLoggedIn" class="auth-buttons">
+        <router-link class="navbar-brand" :to="'/login'">
+          <button type="button" class="btn btn-success mr-2">Ingresa</button>
+        </router-link>
+        <button type="button" class="btn btn-info">Registrate</button>
       </div>
-
-
-      <div class="d-flex" v-if="user.id_acceso == 2">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Homepets</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tus Mascotas</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Perfil</a>
-        </li>
-      </div>
-
-
-      <div class="d-flex" v-if="user.id_acceso == 3">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Asignaciones</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Perfil</a>
-        </li>
-      </div>
-
-
-      <div class="d-flex" v-if="user.id_acceso == 4">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">My Homepet</a>
-        </li>
-
-        <li class="nav-item">
-          <router-link class ="nav-link" :to="'/gerente/empleados'">Empleados</router-link>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Clientes</a>
-        </li>
-      </div>
-
-    </ul>
+    </div>
   </nav>
 </template>
 
@@ -84,17 +97,17 @@
       
     },
     computed:{
-      ...mapState('auth', ['user']),
+      ...mapState('auth', ['user', 'isLoggedIn']),
     }
-    
   }
 </script>
 
-<style>
+<style >
+  .auth-buttons button{
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
 
-.conocenos{
-  color: white;
 
-}
 
 </style>
