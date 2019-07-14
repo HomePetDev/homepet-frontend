@@ -1,12 +1,12 @@
 <template>
-    <h1>hola</h1>
+    <FormReserva/>
 </template>
 
 <script>
-    import FormReserva from "@/components/FormReserva.vue"
+import FormReserva from "@/components/FormReserva.vue"
 
 export default {
-    name:'Reservas',
+    name:'Reserva',
     components:{
         FormReserva
     }
