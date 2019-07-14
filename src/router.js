@@ -24,14 +24,14 @@ export default new Router({
       name: 'home',
       component: Home
     },
-    {
-      path:'/gerente',component : Gerente
-    },
+
+    {path:'/gerente',component : Gerente},
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
     {path:'/gerente/empleados' , component: Empleados },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
+    {path:'/empleado' , component: Empleados},
     {path:'/empleado/Servicio' , component: Servicio },
     {path: '/empleado/actividad', component: Actividad},
     {path:'/gerente/MyHomepet', component: MyHomepet},

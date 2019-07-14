@@ -1,9 +1,11 @@
 <template>
-    <div>
-        <h2>Actividades</h2>    
-        <FormActividad/> 
+   <div class="mt-4 container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="display-4"> Tus Actividades</h1>
+      <FormActividad/>
     </div>
-
+    <hr>
+  </div>
 </template>
 
 <script>

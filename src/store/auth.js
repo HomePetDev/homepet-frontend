@@ -3,7 +3,7 @@ import API from "@/API"
 const state = {
   token:null,
   user:{
-    id_acceso:1 ,
+    id_acceso:4 ,
   },
   isLoggedIn: false,
 }
@@ -126,10 +126,6 @@ const parseJwt = (token) => {
   var base64 = base64Url.replace('-', '+').replace('_', '/');
   return JSON.parse(window.atob(base64));
 }
-
-
-
-
 
 
 export default {
