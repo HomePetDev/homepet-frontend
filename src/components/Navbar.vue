@@ -47,18 +47,22 @@
         <div class="d-flex" v-if="user.id_acceso == 3">
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Asignaciones</a>
+            <router-link class ="nav-link" :to="'/empleado/Actividad'">Actividades</router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Perfil</a>
+            <router-link class ="nav-link" :to="'/empleado/Servicio'">Servicios</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class ="nav-link" :to="'/empleado'">Perfil</router-link>
           </li>
         </div>
 
 
         <div class="d-flex" v-if="user.id_acceso == 4">
           <li class="nav-item">
-            <a class="nav-link" href="#">My Homepet</a>
+            <router-link class="nav-link" :to="'/gerente/MyHomepet'">My Homepet</router-link>
           </li>
 
           <li class="nav-item">
@@ -66,17 +70,50 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Clientes</a>
+            <router-link class ="nav-link" :to="'/gerente/cliente'">cliente</router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link class="nav-link" :to="'/gerente/Inventario'">Inventario</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Mascotas'">Mascotas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Reservas'">Reservas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Estadisticas'">Estadisticas</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Servicio'">Servicio</router-link>
+          </li>
+
+          <li>
+            <router-link class="nav-link" :to="'/gerente/Actividad'">Actividad</router-link>
+          </li>
+
         </div>
 
       </ul>
 
       <div v-show="!isLoggedIn" class="auth-buttons">
         <router-link class="navbar-brand" :to="'/login'">
-          <button type="button" class="btn btn-success mr-2">Ingresa</button>
+          <button type="button" class="btn btn-success">Ingresa</button>
         </router-link>
-        <button type="button" class="btn btn-info">Registrate</button>
+       
+      </div>
+
+      <div v-show="isLoggedIn" class="auth-buttons">
+        <button @click="onLogOut()" class="btn btn-danger">
+          <font-awesome-icon icon="sign-out-alt" />
+
+        </button>
+        
       </div>
     </div>
   </nav>
@@ -84,7 +121,7 @@
 
 <script>
 
-  import { mapState, } from 'vuex'
+  import { mapState,mapActions } from 'vuex'
 
   export default {
     name:'navbar',
@@ -94,7 +131,14 @@
       }
     },
     methods:{
-      
+      ...mapActions("auth", ["logOut"]),
+      onLogOut(){
+        this.logOut().then(()=>{
+          this.$router.push("/")
+
+        })
+        
+      }
     },
     computed:{
       ...mapState('auth', ['user', 'isLoggedIn']),
@@ -107,7 +151,4 @@
     margin: 0 auto;
     font-size: 1.1rem;
   }
-
-
-
 </style>

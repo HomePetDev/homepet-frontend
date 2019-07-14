@@ -18,7 +18,7 @@
             <small class="form-text text-muted">Cantidad de mascotas a las cuales tu franquicia puede dar servicio a la vez</small>
           </div>
           <div class="form-group mt-3">
-            <label >Especialidad<strong class="text-danger"> *</strong></label> 
+            <label>Especialidad<strong class="text-danger"> *</strong></label> 
             <select v-model="form.especializacion" class="custom-select">
               <option>perro</option>
               <option>gato</option>

@@ -8,7 +8,6 @@
 </template>
 
 <style lang="css">
-
 .Container{
 
     align-content: center;

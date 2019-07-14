@@ -10,6 +10,10 @@
 </template>
 
 <script>
+
+  import { mapActions} from "vuex"
+
+
   import Navbar from "@/components/Navbar.vue";
   import FooterVue from "@/components/Footer.vue";
   import Alert from "@/components/Alert.vue";
@@ -19,9 +23,17 @@ export default {
     Navbar, FooterVue, Alert
   },
   computed:{
+    
     isInLoginPage(){
       return this.$route.path === '/login'
     }
+  },
+  methods:{
+    ...mapActions("auth", ["loggedIn"]),
+  },
+  created(){
+    this.loggedIn();
+    
   }
 }
 </script>

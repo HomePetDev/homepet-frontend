@@ -5,6 +5,13 @@ import store from './store/index'
 
 import 'bootswatch/dist/flatly/bootstrap.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {faPlus , faTrash, faPencilRuler , faSignOutAlt} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faPlus, faTrash, faPencilRuler , faSignOutAlt)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 Vue.config.productionTip = false
 
 new Vue({
