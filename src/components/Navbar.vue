@@ -70,7 +70,7 @@
           </li>
 
           <li class="nav-item">
-            <router-link class ="nav-link" :to="'/gerente/cliente'">cliente</router-link>
+            <router-link class ="nav-link" :to="'/gerente/cliente'">Cliente</router-link>
           </li>
 
           <li class="nav-item">
