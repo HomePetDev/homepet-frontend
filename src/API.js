@@ -35,8 +35,17 @@ async function signIn(payload){
     headers:{
       'Content-Type': 'application/json'
     }});
-  return await res.json()  
-}
+  return await res.json() 
+} 
+
+async function getEmpleados(rif){
+  const res = await fetch(`${API_URL}/homepets/empleados/${rif}`,{
+    method:'GET', 
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json() 
+} 
 
 async function createClient(payload){
   const res = await fetch(`${API_URL}/clientes`,{
@@ -69,5 +78,5 @@ async function crearFicha(rif,ficha, servicio){
 }
 
 export default{
-  getUserByCI, getHomepetByCI , getServices, signIn, createClient, createMascota,crearFicha
+  getUserByCI, getHomepetByCI , getServices, signIn, createClient, createMascota,crearFicha, getEmpleados
 }
