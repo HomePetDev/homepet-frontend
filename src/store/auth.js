@@ -79,10 +79,16 @@ const actions = {
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);
           const servicios = await API.getServices(homepet.rif);
+          const clientes = await API.getClientes(homepet.rif);
+          const mascotas = await API.getMascotas(homepet.rif);
           if(!servicios.error)
             context.commit("homepet/setServicios", servicios, {root:true});
           if(!homepet.error)
             context.commit("homepet/setHomepet", homepet, {root:true});
+            if(!mascotas.error)
+            context.commit("homepet/setMascotas", mascotas, {root:true});
+            if(!clientes.error)
+            context.commit("homepet/setClientes", clientes, {root:true});
           if(!user.error){
             context.commit("setUser", user);
             context.commit("setToken", data.token);

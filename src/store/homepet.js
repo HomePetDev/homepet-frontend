@@ -3,6 +3,8 @@ import API from "../API";
 const state={
   homepet:Object,
   servicios:Array,
+  mascotas:Array,
+  clientes: Array,
   empleados:[],
 }
 const mutations = {
@@ -14,6 +16,18 @@ const mutations = {
       state.servicios = servicio
     else    
       state.servicios = [servicio]
+  },
+  setMascotas(state,mascota){
+    if(Array.isArray(mascota))
+      state.mascotas = mascota
+    else
+    state.mascotas = [mascota]
+  },
+  setClientes(state, cliente){
+    if(Array.isArray(cliente))
+      state.clientes = clientes
+      else  
+        state.clientes = [clientes]
   }
 }
 

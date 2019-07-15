@@ -28,6 +28,25 @@ async function getServices(rif){
 
 }
 
+async function getMascotas(rif){
+  const res = await fetch (`${API_URL}/mascotas/${rif}`,{
+    method: 'GET',
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+    return await res.json()
+    }
+
+    async function getClientes(rif){
+      const res = await fetch (`${API_URL}/clientes/${rif}`,{
+        method: 'GET',
+        headers:{
+          'Content-Type' : 'application/json'
+        }});
+      return await res.json()
+    }
+
+
 export default{
   getUserByCI, getHomepetByCI , getServices
 }
