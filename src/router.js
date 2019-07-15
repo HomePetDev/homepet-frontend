@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Gerente from './views/Gerente.vue'
 import GerenteSignin from './views/GerenteSignin.vue'
 import newHomepet from './views/newHomepet.vue'
 import Empleados from './views/Empleados.vue'
@@ -26,7 +25,6 @@ export default new Router({
       component: Home
     },
 
-    {path:'/gerente',component : Gerente},
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
     {path:'/gerente/empleados' , component: Empleados },
@@ -37,11 +35,11 @@ export default new Router({
     {path:'/empleado/actividad', component: Actividad},
     {path:'/gerente/myhomepet', component: MyHomepet},
     {path:'/gerente/mascotas',component: Mascotas},
-    {path:'/gerente/inventario', component:Inventario},
-    {path:'/gerente/reservas', component:Reserva},
-    {path:'/gerente/servicios', component:Servicio},
-    {path:'/gerente/actividades/:nombre', component:Actividad, props:true},
-    {path:'/gerente/clientes', component:Cliente},
-    {path:'/NewFicha', component:NewFicha},
+    {path:'/gerente/inventario', component: Inventario},
+    {path:'/gerente/reservas', component: Reserva},
+    {path:'/gerente/servicios', component: Servicio},
+    {path:'/gerente/actividades/:nombre', component: Actividad, props:true},
+    {path:'/gerente/clientes', component: Cliente},
+    {path:'/NewFicha', component: NewFicha},
   ]
 })

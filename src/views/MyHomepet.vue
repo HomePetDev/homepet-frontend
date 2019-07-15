@@ -57,7 +57,7 @@
   import {mapState} from  "vuex"
 
   export default {
-    name:'gerente',
+    name:'myhomepet',
     data(){
       return{
 
@@ -66,7 +66,6 @@
     computed:{
       ...mapState('auth',['isLoggedIn','user']),
       ...mapState('homepet',['homepet']),
-
     }
 
 

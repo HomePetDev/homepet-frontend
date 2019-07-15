@@ -2,7 +2,7 @@ import API from "../API";
 
 const state={
   homepet:Object,
-  servicios:[],
+  servicios:Array,
   empleados:[],
 }
 const mutations = {

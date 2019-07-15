@@ -3,7 +3,7 @@ import API from "@/API"
 const state = {
   token:null,
   user:{
-    id_acceso:4,
+    id_acceso:1,
   },
   isLoggedIn: false,
 }
@@ -79,8 +79,6 @@ const actions = {
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);
           const servicios = await API.getServices(homepet.rif);
-
-          
           if(!servicios.error)
             context.commit("homepet/setServicios", servicios, {root:true});
           if(!homepet.error)
@@ -102,7 +100,7 @@ const actions = {
       localStorage.setItem('token' , null);
       context.commit("setIsLoggedIn", false);
       context.commit("homepet/setHomepet", null, {root:true});
-      context.commit("homepet/setServicios", null, {root:true});
+      context.commit("homepet/setServicios", [], {root:true});
       context.commit("setUser", {id_acceso:1});
       resolve(); 
     });
