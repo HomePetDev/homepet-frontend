@@ -1,33 +1,31 @@
 <template>
-  <div class="mt-4 container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h1 class="display-4">Mascotas</h1>
+    <div class="mt-4 container">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="display-4">Mascotas</h1>
+            <FormProd/>
+        </div>
+        <hr>
+        <ul>
+        <div class="card border-success mb-3" 
+                v-for="Mascota in Mascotas" :key="Mascota.id"
+                >
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3>{{Mascota.nombre_prod}}</h3>
+                        <font-awesome-icon class="edit-icon" style="font-size:24px cursor:pointer" icon="pencil-ruler" />
+                    </div>
+                    <div class="card-body">   
+                        <p class="card-text">{{Mascota.descripcion}}</p>
+                    </div>
+                </div>
+        </ul>
     </div>
-    <hr>
-    <ul>
-      <div class="card border-success mb-3" 
-            v-for="Mascota in Mascotas" :key="Mascota.id"
-            >
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>{{Mascota.nombre_prod}}</h3>
-                    <font-awesome-icon class="edit-icon" style="font-size:24px cursor:pointer" icon="pencil-ruler" />
-                </div>
-                <div class="card-body">   
-                    <p class="card-text">{{Mascota.descripcion}}</p>
-                </div>
-            </div>
-    </ul>
-    
-  </div>
 </template>
 
 <script>
-import FormMascota from "@/components/FormMascota.vue"
 
 export default {
     name:'Mascotas',
     components:{
-        FormMascota
     },
     data(){
         return{
@@ -49,10 +47,13 @@ export default {
         }
         
     }
-
 }
 </script>
 
 <style>
+.display-4{
+  text-align: center;
+}
+
 
 </style>

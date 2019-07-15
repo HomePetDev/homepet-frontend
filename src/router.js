@@ -34,7 +34,6 @@ export default new Router({
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
     {path:'/empleado' , component: Empleados},
-    {path:'/empleado/Servicio' , component: Servicio },
     {path:'/empleado/actividad', component: Actividad},
     {path:'/gerente/myhomepet', component: MyHomepet},
     {path:'/gerente/mascotas',component: Mascotas},

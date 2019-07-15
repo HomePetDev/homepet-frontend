@@ -31,11 +31,6 @@ export default {
     },
     data(){
         return{
-<<<<<<< HEAD
-
-            
-        }
-=======
             productos:[
                 {
                     nombre_prod:'cocaina', 
@@ -61,7 +56,6 @@ export default {
             ]
         }
         
->>>>>>> 7acc4d1099173f1d43923fde9d5aca247c0ee6ff
     }
 
 }
