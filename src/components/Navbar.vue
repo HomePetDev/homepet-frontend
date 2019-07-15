@@ -93,7 +93,7 @@
       </div>
 
       <div v-show="isLoggedIn" class="auth-buttons">
-        <button @click="onLogOut()" class="btn btn-danger">
+        <button @click="onLogOut()" class="btn btn-primary">
           <font-awesome-icon icon="sign-out-alt" />
         </button>
       </div>

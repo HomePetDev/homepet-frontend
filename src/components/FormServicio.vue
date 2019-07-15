@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button  @click="toggleForm(true)" class="btn btn-info btn-lg">
+    <button  @click="toggleForm(true)" class="btn btn-success btn-lg">
       <font-awesome-icon icon="plus" />
     </button>
       <form

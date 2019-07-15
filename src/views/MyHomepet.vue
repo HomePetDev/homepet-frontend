@@ -45,7 +45,7 @@
     <div class="button-container">
         <router-link :to="'/NewFicha'">
             <button class="btn btn-success">
-              Nueva mascota
+              Registrar una orden
             </button> 
         </router-link>
     </div>

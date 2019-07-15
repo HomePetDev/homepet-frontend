@@ -19,6 +19,9 @@
                     <font-awesome-icon class="edit-icon" icon="pencil-alt" />
                   </button>
                 </router-link>
+                <button @click="onDelete(servicio.nombre)" class="btn btn-danger ml-4">
+                  <font-awesome-icon class="edit-icon" icon="times"/>
+                </button>
               </div>
               
           </div>  
@@ -36,7 +39,7 @@
 
 <script>
 import FormServicio from "@/components/FormServicio.vue"
-import {mapState} from "vuex";
+import {mapState, mapActions} from "vuex";
 
 export default {
     name:'Servicio',
@@ -49,14 +52,18 @@ export default {
       }
     },
     methods:{
-      navigateToActividades(servicio){
-        this.$router.push({
-          path:`/gerente/actividades/${servicio.nombre}`,
-          params:{ servicio }
-        })
+      ...mapActions("homepet", ["removeService"]),
+      onDelete(nombre){
+        this.removeService(nombre)
+          .then(()=>{
+          
+      
+          })
+          .catch(()=>{})
       }
+      
+      
     },
-
     computed:{
       ...mapState("homepet", ["servicios"]),
     }

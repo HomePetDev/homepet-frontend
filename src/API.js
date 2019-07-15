@@ -28,6 +28,46 @@ async function getServices(rif){
 
 }
 
+async function signIn(payload){
+  const res = await fetch(`${API_URL}/auth/signin/`,{
+    method:'POST', 
+    body: JSON.stringify({payload}),
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json()  
+}
+
+async function createClient(payload){
+  const res = await fetch(`${API_URL}/clientes`,{
+    method:'POST', 
+    body: JSON.stringify({payload}),
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json()  
+}
+
+async function createMascota(cedula, payload){
+  const res = await fetch(`${API_URL}/mascotas/${cedula}`,{
+    method:'POST', 
+    body: JSON.stringify({payload}),
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json()  
+}
+
+async function crearFicha(rif,ficha, servicio){
+  const res = await fetch(`${API_URL}/fichas/${rif}`,{
+    method:'POST', 
+    body: JSON.stringify({payload:{ficha, servicio}}),
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json()  
+}
+
 export default{
-  getUserByCI, getHomepetByCI , getServices
+  getUserByCI, getHomepetByCI , getServices, signIn, createClient, createMascota,crearFicha
 }

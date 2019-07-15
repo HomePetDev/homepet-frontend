@@ -1,11 +1,11 @@
 <template>
   <div>
     <form 
-      class="form-container p-4 bg-light rounded text-dark shadow-sm mb-4"
+      class="form-container p-4  rounded text-dark shadow-sm mb-4"
     >
       <div class="mb-4 d-flex justify-content-between align-items-center">
         <h4>Nueva mascota</h4>
-        <button  type="button" class="close" >&times;</button>
+        
       </div>
       <div class="form-group" >
         <label >Nombre Mascota</label>
@@ -59,14 +59,7 @@ export default {
 </script>
 
 <style scoped>
-    .form-container{
-      position: fixed;
-      top: 20px;
-      width: 40%;
-      left: 30%;
-      z-index:1000
-  }
-
+  
   .button-container{
       text-align: center;
       width: 30%;
