@@ -1,9 +1,7 @@
 <template>
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <router-link class="navbar-brand" :to="'/'">
-          <img src="../assets/Logo_2.png" alt="" width="150">
-      </router-link>
+      <img src="../assets/Logo_2.png" alt="" width="150">
       <ul class="navbar-nav mr-auto">
 
         <div class="d-flex" v-if="user.id_acceso == 1">

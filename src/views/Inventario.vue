@@ -15,6 +15,12 @@ export default {
     name:'Inventario',
     components:{
         FormProd
+    },
+    data(){
+        return{
+
+            
+        }
     }
 
 }

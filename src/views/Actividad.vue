@@ -1,7 +1,7 @@
 <template>
    <div class="mt-4 container">
     <div class="d-flex justify-content-between align-items-center">
-      <h1 class="display-5">Actividades de {{props.servicio.nombre}}</h1>
+      <h1 class="display-5">Actividades de {{nombre}}</h1>
       <FormActividad/>
     </div>
     <hr>
@@ -16,9 +16,13 @@ export default {
     components:{
       FormActividad
     },
-    props:{
-      servicio:Object
-    }
+    data(){
+      return{
+
+      }
+    },
+    props:["nombre"]
+
 }
 </script>
 

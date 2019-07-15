@@ -9,8 +9,11 @@ const mutations = {
   setHomepet (state, payload){
     state.homepet = {...payload}
   },
-  setServicios(state, payload){
-    state.servicios= payload
+  setServicios(state, servicio){
+    if (Array.isArray(servicio))
+      state.servicios = servicio
+    else    
+      state.servicios = [servicio]
   }
 }
 

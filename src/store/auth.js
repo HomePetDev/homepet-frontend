@@ -79,13 +79,18 @@ const actions = {
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);
           const servicios = await API.getServices(homepet.rif);
-          context.commit("setUser", user);
-          context.commit("setToken", data.token);
-          localStorage.setItem('token' , data.token);
-          context.commit("homepet/setHomepet", homepet, {root:true});
-          context.commit("homepet/setServicios", servicios, {root:true});
 
-          context.commit("setIsLoggedIn", true) ;
+          
+          if(!servicios.error)
+            context.commit("homepet/setServicios", servicios, {root:true});
+          if(!homepet.error)
+            context.commit("homepet/setHomepet", homepet, {root:true});
+          if(!user.error){
+            context.commit("setUser", user);
+            context.commit("setToken", data.token);
+            localStorage.setItem("token", data.token)
+            context.commit("setIsLoggedIn", true) ;
+          }
           context.commit('control/setLoading', false, {root:true});
           resolve();
         }
@@ -97,6 +102,7 @@ const actions = {
       localStorage.setItem('token' , null);
       context.commit("setIsLoggedIn", false);
       context.commit("homepet/setHomepet", null, {root:true});
+      context.commit("homepet/setServicios", null, {root:true});
       context.commit("setUser", {id_acceso:1});
       resolve(); 
     });
@@ -106,15 +112,17 @@ const actions = {
   async loggedIn(context){
     return new Promise( async(resolve)=>{
       const token = localStorage.getItem('token');
-
       if(token){
         const {cedula_id} = parseJwt(token);
         const user = await API.getUserByCI(cedula_id);
         const homepet = await API.getHomepetByCI(cedula_id);
         const servicios = await API.getServices(homepet.rif);
-        context.commit("setUser", user);
-        context.commit("homepet/setHomepet", homepet, {root:true});
-        context.commit("homepet/setServicios", servicios, {root:true});
+        if(!servicios.error)
+          context.commit("homepet/setServicios", servicios, {root:true});
+        if(!user.error)
+          context.commit("setUser", user);
+        if(!homepet.error)
+          context.commit("homepet/setHomepet", homepet, {root:true});
         context.commit("setIsLoggedIn", true);
         resolve();
       } 
