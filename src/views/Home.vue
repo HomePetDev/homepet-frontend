@@ -30,7 +30,10 @@
 
 <style scoped>
   .jumbotron{
-    height: 500px;
+    margin-top: 25px;
+    border-radius: 15px;
+    text-align: center;
   }
+  
 
 </style>
