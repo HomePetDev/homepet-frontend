@@ -13,6 +13,7 @@
       >
           <div class="card-header d-flex justify-content-between align-items-center">
               <h3>{{servicio.nombre}}</h3>
+              
               <div class="buttons">
                 <router-link :to="{path:`/gerente/actividades/${servicio.nombre}`,params:{nombre:servicio.nombre}}">
                   <button class="btn btn-info">

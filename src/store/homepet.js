@@ -3,7 +3,7 @@ import API from "../API";
 const state={
   homepet:Object,
   servicios:Array,
-  empleados:[],
+  empleados:Array,
 }
 const mutations = {
   setHomepet (state, payload){
@@ -14,7 +14,14 @@ const mutations = {
       state.servicios = servicio
     else    
       state.servicios = [servicio]
-  }
+  },
+  
+  setEmpleados(state, empleado){
+    if (Array.isArray(empleado))
+      state.empleados = empleado
+    else    
+      state.empleados = [empleado]
+  },
 }
 
 const actions = {
@@ -80,6 +87,74 @@ const actions = {
             resolve();
           }
       }
+    });
+  },
+
+  newEmpleado(context, payload){
+    return new Promise(async (resolve,reject)=>{
+      const rif = context.state.homepet.rif;
+
+      const { cedula_id, pass, nombre, direccion, telefono,sueldo } = payload
+
+      const newUser = {cedula_id, nombre, direccion, telefono, pass}
+
+      const newEmpleado = {cedula:cedula_id, sueldo:sueldo}
+
+      if (!cedula_id || !pass || !direccion || !nombre || !telefono){
+
+        reject({msg:"Por favor completa los campos", type:"alert-danger"});
+      }else if(pass.length < 4){ 
+        reject({msg:"Tu contraseña debe contener almenos 5 caracteres", type:"alert-warning"});
+      }else{
+        context.commit('control/setLoading', true, {root:true});
+        const res = await fetch('http://localhost:3000/api/auth/signin',{
+          method:'POST',
+          body: JSON.stringify({payload:newUser}), 
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          
+        })
+
+        
+        const data = await res.json();
+        if (!data.error){
+          if ( !cedula_id  || !nombre || !direccion || !telefono || !sueldo ){
+            reject({msg:"Por favor completa los campos", type:"alert-danger"});
+          }else{
+            payload = {cedula_id, nombre, direccion, telefono, sueldo}
+            const res = await fetch(`http://localhost:3000/api/empleados/${rif}`,
+              {
+                method:'POST',
+                body: JSON.stringify({payload:newEmpleado}), 
+                headers:{
+                  'Content-Type': 'application/json'
+                } 
+              });
+              console.log("Se registro emp");
+              const data = await res.json();
+              if (data.error){
+                reject({msg:"Error al crear el empleado", type:"alert-danger"});
+              }else{
+                const empleados = await API.getEmpleados(rif);
+                context.commit("setEmpleados", empleados)
+                resolve();
+              }
+          }
+
+          await setTimeout(()=> {
+            context.commit('control/setLoading', false, {root:true});
+            context.commit('setUser', data);
+            resolve();
+          }, 2 * 1000)
+        }else{
+          context.commit('control/setLoading', false, {root:true});
+          reject({msg:"El usuario ya se encuentra registrado", type:"alert-danger"});
+        }
+      };
+
+
+ 
     });
   }
 }

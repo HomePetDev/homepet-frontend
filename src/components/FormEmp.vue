@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import { mapActions}  from "vuex"
+
 export default {
   data(){
     return{
@@ -56,13 +58,22 @@ export default {
     }
   },
   methods:{
+    ...mapActions("homepet", ["newEmpleado"]),
+    ...mapActions("control", ["showAlert"]),
+
     toggleForm(value){
         this.isOpen=value;
     },
     onSubmit(){
 
-      // console.log(this.form);
-      // // Aqui handleamos el formulario
+      this.newEmpleado(this.form)
+        .then(()=>{
+          this.form={cedula_id:null, pass:null, nombre:null, direccion:null, telefono:null, sueldo:null}
+          this.toggleForm(false);
+          event.target.reset();
+          // do something with good response
+        })
+        .catch((alert) => this.showAlert(alert))
 
     }
   }
