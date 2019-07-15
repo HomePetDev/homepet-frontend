@@ -17,7 +17,6 @@
         <div class="form-group mt-3">
           <label> Especialidad </label>  
           <select v-model="form.especialidad" class="custom-select">
-            <option disable value ="">A que animal te dedicas</option>
             <option>Perros</option>
             <option>Gatos</option>
             <option>Hamster</option>

@@ -1,37 +1,37 @@
 <template>
     <div class="mt-4 container">
         <div class="d-flex justify-content-between align-items-center">
-            <h1 class="display-4">Cliente</h1>
+            <h1 class="display-4"> Reservas</h1>
+            <FormReserva/>
         </div>
         <hr>
         <ul>
-            <div class="card border-success mb-3"
-            v-for="Cliente in Clientes" :key="Cliente.id"
+            <div class="card border-success mb-3" 
+            v-for="Reserva in Reservas" :key="Reserva.id"
             >
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>{{Cliente.nombre_prod}}</h3>
+                    <h3>{{Reserva.nombre_prod}}</h3>
                     <font-awesome-icon class="edit-icon" style="font-size:24px cursor:pointer" icon="pencil-ruler" />
                 </div>
                 <div class="card-body">   
-                    <p class="card-text">{{Cliente.descripcion}}</p>
+                    <p class="card-text">{{Reserva.descripcion}}</p>
                 </div>
             </div>
         </ul>
-    </div>
-
+    </div>    
 </template>
 
 <script>
-import FormCliente from "@/components/FormCliente.vue"
+import FormReserva from "@/components/FormReserva.vue"
 
 export default {
-    name:'Cliente',
+    name:'Reserva',
     components:{
-        FormCliente
+        FormReserva
     },
     data(){
         return{
-            Clientes:[
+            Reservas:[
                 {
                     nombre_prod:'cocaina', 
                     descripcion:'baking soda' 
@@ -42,15 +42,17 @@ export default {
                     nombre_prod:'heroina', 
                     descripcion:'capitana marvel'
                 },{
-                    nombre_prod:'pipi', 
-                    descripcion:'pa que te montes'
+                    nombre_prod:'carrito', 
+                    descripcion:'pa que te montes' 
                 }
             ]
-        }       
+        }
+        
     }
+
 }
 </script>
 
-<style lang="css">
- 
+<style>
+
 </style>
