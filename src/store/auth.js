@@ -3,7 +3,7 @@ import API from "@/API"
 const state = {
   token:null,
   user:{
-    id_acceso:1,
+    id_acceso: 1 ,
   },
   isLoggedIn: false,
 }
@@ -23,7 +23,9 @@ const mutations = {
 const actions = {
   signIn(context , payload){
     return new Promise(async (resolve, reject) => {
+
       const { cedula_id, pass, direccion, nombre, telefono} = payload;
+      
       if (!cedula_id || !pass || !direccion || !nombre || !telefono){
         reject({msg:"Por favor completa los campos", type:"alert-danger"});
       }else if(pass.length < 4){ 
@@ -69,8 +71,6 @@ const actions = {
           } 
         });
         const data = await res.json();
-       
-        
 
         if (data.error){
           context.commit('control/setLoading', false, {root:true});        
@@ -79,6 +79,10 @@ const actions = {
           const user = await API.getUserByCI(cedula_id);
           const homepet = await API.getHomepetByCI(cedula_id);
           const servicios = await API.getServices(homepet.rif);
+          const empleados = await API.getEmpleados(homepet.rif);
+
+          if(!empleados.error)
+            context.commit("homepet/setEmpleados", empleados, {root:true});
           if(!servicios.error)
             context.commit("homepet/setServicios", servicios, {root:true});
           if(!homepet.error)
@@ -115,6 +119,11 @@ const actions = {
         const user = await API.getUserByCI(cedula_id);
         const homepet = await API.getHomepetByCI(cedula_id);
         const servicios = await API.getServices(homepet.rif);
+        const empleados = await API.getEmpleados(homepet.rif);
+
+        if(!empleados.error)
+          context.commit("homepet/setEmpleados", empleados, {root:true});
+          
         if(!servicios.error)
           context.commit("homepet/setServicios", servicios, {root:true});
         if(!user.error)

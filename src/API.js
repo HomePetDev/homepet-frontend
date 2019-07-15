@@ -28,6 +28,16 @@ async function getServices(rif){
 
 }
 
+async function getEmpleados(rif){
+  const res = await fetch(`${API_URL}/homepets/empleados/${rif}`,{
+    method:'GET', 
+    headers:{
+      'Content-Type': 'application/json'
+    }});
+  return await res.json()  
+
+}
+
 export default{
-  getUserByCI, getHomepetByCI , getServices
+  getUserByCI, getHomepetByCI , getServices, getEmpleados
 }

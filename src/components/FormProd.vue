@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
     data(){
     return{
@@ -48,7 +50,7 @@ export default {
       }
     }
   },
-  methods:{
+  
     toggleForm(value){
         this.isOpen=value;
     },
@@ -60,7 +62,6 @@ export default {
     }
   }
 
-}
 </script>
 
 <style scoped>

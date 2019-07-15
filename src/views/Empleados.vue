@@ -7,15 +7,15 @@
     <hr>
     <ul>
       <div class="card border-success mb-3" 
-            v-for="Empleado in Empleados" :key="Empleado.id"
+            v-for="empleado in empleados" :key="empleado.id"
             >
-            <router-link class="nav-link" :to="`/gerente/empleados/${Empleado.nombre_prod}`">
+            <router-link class="nav-link" :to="`/gerente/empleados/${empleado.nombre}`">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>{{Empleado.nombre_prod}}</h3>
+                    <h3>{{empleado.nombre}}</h3>
                     <font-awesome-icon class="edit-icon" style="font-size:24px cursor:pointer" icon="pencil-ruler" />
                 </div>
                 <div class="card-body">   
-                    <p class="card-text">{{Empleado.descripcion}}</p>
+                    <p class="card-text">{{empleado.direccion}}</p>
                 </div>
                 </router-link>
             </div>
@@ -28,32 +28,21 @@
 
 <script>
 import FormEmp from "@/components/FormEmp.vue"
-
+import {mapState} from "vuex";
 
 export default {
-    name: 'Empleados',
+    name: 'Empleado',
     components: {
         FormEmp
     },
     data(){
         return{
-            Empleados:[
-                {
-                    nombre_prod:'cocaina', 
-                    descripcion:'baking soda' 
-                },{
-                    nombre_prod:'cripi',
-                    descripcion:'smoku smoki' 
-                },{
-                    nombre_prod:'heroina', 
-                    descripcion:'capitana marvel'
-                },{
-                    nombre_prod:'carrito', 
-                    descripcion:'pa que te montes' 
-                }
-            ]
-        }
         
+        }
+    },
+        computed:{
+      ...mapState("homepet", ["empleados"]),
+     
     }
 
 }
