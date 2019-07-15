@@ -68,7 +68,8 @@ export default {
     position: fixed;
     top: 20px;
     width: 40%;
-    left: 30%
+    left: 30%;
+    z-index: 1000;
   }
 
   .button-container{

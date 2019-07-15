@@ -9,6 +9,7 @@
       <div class="card border-success mb-3" 
             v-for="Empleado in Empleados" :key="Empleado.id"
             >
+            <router-link class="nav-link" :to="`/gerente/empleados/${Empleado.nombre_prod}`">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>{{Empleado.nombre_prod}}</h3>
                     <font-awesome-icon class="edit-icon" style="font-size:24px cursor:pointer" icon="pencil-ruler" />
@@ -16,7 +17,9 @@
                 <div class="card-body">   
                     <p class="card-text">{{Empleado.descripcion}}</p>
                 </div>
+                </router-link>
             </div>
+            
     </ul>
 
   </div>
