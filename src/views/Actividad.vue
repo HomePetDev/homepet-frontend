@@ -1,7 +1,7 @@
 <template>
    <div class="mt-4 container">
     <div class="d-flex justify-content-between align-items-center">
-      <h1 class="display-4"> Tus Actividades</h1>
+      <h1 class="display-5">Actividades de {{nombre}}</h1>
       <FormActividad/>
     </div>
     <hr>
@@ -14,8 +14,15 @@ import FormActividad from "@/components/FormActividad.vue"
 export default {
     name:'Actividad',
     components:{
-        FormActividad
-    }
+      FormActividad
+    },
+    data(){
+      return{
+
+      }
+    },
+    props:["nombre"]
+
 }
 </script>
 

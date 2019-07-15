@@ -2,7 +2,6 @@
   <div>
     <button  @click="toggleForm(true)" class="btn btn-info btn-lg">
       <font-awesome-icon icon="plus" />
-
     </button>
       <form
           @submit.prevent="onSubmit()"

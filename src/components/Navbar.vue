@@ -1,9 +1,7 @@
 <template>
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <router-link class="navbar-brand" :to="'/'">
-          <img src="../assets/Logo_2.png" alt="" width="150">
-      </router-link>
+      <img src="../assets/Logo_2.png" alt="" width="150">
       <ul class="navbar-nav mr-auto">
 
         <div class="d-flex" v-if="user.id_acceso == 1">
@@ -58,47 +56,33 @@
             <router-link class ="nav-link" :to="'/empleado'">Perfil</router-link>
           </li>
         </div>
-
-
         <div class="d-flex" v-if="user.id_acceso == 4">
           <li class="nav-item">
-            <router-link class="nav-link" :to="'/gerente/MyHomepet'">My Homepet</router-link>
+            <router-link class="nav-link" :to="'/gerente/myhomepet'">My Homepet</router-link>
           </li>
-
           <li class="nav-item">
             <router-link class ="nav-link" :to="'/gerente/empleados'">Empleados</router-link>
           </li>
-
           <li class="nav-item">
-            <router-link class ="nav-link" :to="'/gerente/cliente'">cliente</router-link>
+            <router-link class="nav-link" :to="'/gerente/inventario'">Inventario</router-link>
           </li>
-
           <li class="nav-item">
-            <router-link class="nav-link" :to="'/gerente/Inventario'">Inventario</router-link>
+            <router-link class ="nav-link" :to="'/gerente/clientes'">Clientes</router-link>
+          </li>
+          <li>
+            <router-link class="nav-link" :to="'/gerente/mascotas'">Mascotas</router-link>
           </li>
 
           <li>
-            <router-link class="nav-link" :to="'/gerente/Mascotas'">Mascotas</router-link>
+            <router-link class="nav-link" :to="'/gerente/reservas'">Reservas</router-link>
           </li>
-
           <li>
-            <router-link class="nav-link" :to="'/gerente/Reservas'">Reservas</router-link>
+            <router-link class="nav-link" :to="'/gerente/servicios'">Servicios</router-link>
           </li>
-
-          <li>
-            <router-link class="nav-link" :to="'/gerente/Estadisticas'">Estadisticas</router-link>
+           <li>
+            <router-link class="nav-link" :to="'/gerente/estadisticas'">Estadisticas</router-link>
           </li>
-
-          <li>
-            <router-link class="nav-link" :to="'/gerente/Servicio'">Servicio</router-link>
-          </li>
-
-          <li>
-            <router-link class="nav-link" :to="'/gerente/Actividad'">Actividad</router-link>
-          </li>
-
         </div>
-
       </ul>
 
       <div v-show="!isLoggedIn" class="auth-buttons">
@@ -111,9 +95,7 @@
       <div v-show="isLoggedIn" class="auth-buttons">
         <button @click="onLogOut()" class="btn btn-danger">
           <font-awesome-icon icon="sign-out-alt" />
-
         </button>
-        
       </div>
     </div>
   </nav>
