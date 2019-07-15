@@ -30,6 +30,7 @@ export default new Router({
     {path:'/gerente/signin', component: GerenteSignin },
     {path:'/gerente/homepet/new' , component: newHomepet },
     {path:'/gerente/empleados' , component: Empleados },
+    {path:'/gerente/empleados/:nombre_prod' , component: Empleados, props:true },
     {path:'/conocenos' , component: Conocenos },
     {path:'/login' , component: Login },
     {path:'/empleado' , component: Empleados},

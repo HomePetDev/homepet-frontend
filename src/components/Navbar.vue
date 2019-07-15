@@ -64,7 +64,11 @@
             <router-link class ="nav-link" :to="'/gerente/empleados'">Empleados</router-link>
           </li>
           <li class="nav-item">
+<<<<<<< HEAD
             <router-link class="nav-link" :to="'/gerente/inventario'">Inventario</router-link>
+=======
+            <router-link class ="nav-link" :to="'/gerente/cliente'">Cliente</router-link>
+>>>>>>> 7acc4d1099173f1d43923fde9d5aca247c0ee6ff
           </li>
           <li class="nav-item">
             <router-link class ="nav-link" :to="'/gerente/clientes'">Clientes</router-link>

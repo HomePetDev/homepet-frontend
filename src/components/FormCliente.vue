@@ -42,6 +42,23 @@ export default {
 </script>
 
 <style scoped>
+    .form-container{
+    position: fixed;
+    top: 20px;
+    width: 40%;
+    left: 30%;
+    z-index:1000
+  }
+
+  .button-container{
+    text-align: center;
+    width: 30%;
+    margin:0 auto;
+  }
+
+  .close{
+    color: black
+  }
     .form-group{
         min-width:30% ;
     }
